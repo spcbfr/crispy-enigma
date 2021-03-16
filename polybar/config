@@ -1,0 +1,92 @@
+[colors]
+background = #282828
+foreground = #ebdbb2
+foreground-alt = #fbf1c7
+gray = #928374
+red = #cc251d
+red-l = #fb4934
+green = #98971a
+green-l = #b8bb26
+yellow = #d79921
+yellow-l = #fabd2f
+blue = #458588
+blue-l = #83a598
+purple = #b16286
+purple-l = #d3869b
+aqua = #689d6a
+aqua-l = #8ec07c
+
+[bar/main]
+
+; APPEARANCE
+width = 100%
+height = 25
+
+font-0 = "Fira Code:pixelsize=12;0"
+background = ${colors.background}
+foreground = ${colors.foreground}
+
+padding-left = 2
+padding-right = 2
+
+module-margin-left = 1
+module-margin-right = 2
+
+; MODULES
+modules-left = bspwm
+modules-center = title
+modules-right = battery clock 
+module-margin = 1
+
+
+[global/wm]
+margin-top = 20
+
+[module/bspwm]
+type = internal/bspwm
+
+label-focused = %name%
+label-focused-background = ${colors.blue}
+label-focused-padding = 1
+
+label-occupied = %name%
+label-occupied-background = ${colors.aqua}
+label-occupied-padding = 1
+
+label-urgent = %name%
+label-urgent-background = ${colors.red}
+label-urgent-padding = 1
+
+label-empty = %name%
+label-empty-foreground = ${colors.foreground-alt}
+label-empty-padding = 1
+[module/title]
+type = internal/xwindow
+label-empty = Arch - bspwm
+label-empty-foreground = #707880
+
+
+[module/clock]
+type = internal/date
+interval = 1.0
+date = %Y-%m-%d%
+time = %H:%M
+label = %date% %time%
+date-alt = %A, %d %B %Y
+time-alt = %H:%M:%S
+format = <label>
+format-foreground = ${colors.foreground}
+format-padding = 2
+format-background = ${colors.green}
+
+[module/battery]
+type = internal/battery
+battery = BAT1
+adapter = ACAD
+full-at = 99
+format-charging = <label-charging>
+label-charging = Charging %percentage%%
+format-discharing = <label-discharging>
+label-discharging = Discharging %percentage%%
+label-full = Fully charged
+label-background = #fff

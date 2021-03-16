@@ -1,0 +1,46 @@
+# run the terminal
+super + Return
+		alacritty
+
+# run the command launcher
+super + p
+		rofi -show run
+
+alt + Tab
+		rofi -show window
+
+# click super + o then w (web) or c (chat) or m (music) to launch the corresponding app
+super + o ; {c,w,m}
+		{discord,firefox,spotify}
+
+# close the currently focused window
+super + BackSpace
+		xdo close
+# focus on a window in the corresponding direction (vim keys)
+super + {h,j,k,l}
+		bspc node -f {west,south,north,east}
+
+# move a node in the corrensponding direction (vim keys)
+super + shift + {h,j,k,l}
+		bspc node -s {west,south,north,east}
+
+# focus on desktop
+super + {ampersand,eacute,quotedbl,apostrophe,parenleft,minus,egrave,underscore,ccedilla,agrave}
+		bspc desktop -f '^{1-9,0}'
+
+# move window to desktop
+super + control + {ampersand,eacute,quotedbl,apostrophe,parenleft,minus,egrave,underscore,ccedilla,agrave}
+		bspc node -d '^{1-9,0}'
+
+# move window to desktop and focus on that desktop
+super + alt + {ampersand,eacute,quotedbl,apostrophe,parenleft,minus,egrave,underscore,ccedilla,agrave}
+		bspc node -d '^{1-9,0}' && bspc desktop -f '^{1-9,0}'
+
+# Expand a window by moving one of its side outward
+ctrl + alt + {h,j,k,l}
+		bspc node -z {left -20 0,bottom 0 20,top 0 -20,right 20 0}
+
+# Contract a window by moving one of its side inward
+ctrl + alt + shift + {h,j,k,l}
+		bspc node -z {right -20 0,top 0 20,bottom 0 -20,left 20 0}
+
